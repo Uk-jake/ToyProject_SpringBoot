@@ -6,6 +6,14 @@ public class Post {
     Integer id;
     String title;
     String content;
+
+    public Post(Integer id, String title, String content, String username) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.username = username;
+    }
+
     String username;
     Date createdAt;
 
