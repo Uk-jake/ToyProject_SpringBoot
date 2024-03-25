@@ -45,10 +45,32 @@ $(function () {
         })
             .done(function(response){
                 console.log("Post creation success!");
-                window.location.href = "/";
+                window.location.href = "/post/" + id ;
             })
     });
 
+    $("#edit_button").click(function () {
+        console.log("clicked!");
+
+        var id = $("#edit-post-id").val();
+        var title = $("#edit-post-title").val();
+        var content = $("#edit-post-content").val();
+
+        $.ajax({
+            method: "PUT",
+            url : "/post",
+            data: JSON.stringify({
+                "id" : id,
+                "title" : title,
+                "content" : content
+            }),
+            contentType : "application/json"
+        })
+            .done(function(response){
+                console.log("Post creation success!");
+                window.location.href = "/";
+            })
+    });
 
     // $("#create_button").click(function(){
     //     console.log("creat_button");

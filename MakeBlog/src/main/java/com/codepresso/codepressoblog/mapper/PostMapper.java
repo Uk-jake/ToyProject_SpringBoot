@@ -14,4 +14,5 @@ public interface PostMapper {
     Integer save(@Param("post") Post post);
     //Mybatis에서 저장 수정 삭제 시 영향을 받은 로우들의 값을 리턴 받음.
     //Save는 하나의 로우가 리턴받기 때문에 정상적으로 처리 된다면 1 받음.
+    Integer update(@Param("post") Post post);
 }

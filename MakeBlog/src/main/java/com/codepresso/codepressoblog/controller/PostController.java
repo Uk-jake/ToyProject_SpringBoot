@@ -36,4 +36,12 @@ public class PostController {
 
         return "success";
     }
+
+    @PutMapping("/post")
+    public String updatePost(@RequestBody PostRequestDto postRequestDto){
+        Post post = postRequestDto.getPost();
+        postService.updatePost(post);
+
+        return "success";
+    }
 }
