@@ -25,4 +25,9 @@ public class PostPageController {
 
     }
 
+    @RequestMapping("/post/create")
+    public String getPostCreatePage(){
+        return "post_write";
+    }
+
 }

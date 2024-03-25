@@ -1,6 +1,6 @@
 $(function () {
     $("#more").click(function () {
-        // console.log("clicked!");
+        console.log("clicked!");
 
         var next_page = parseInt($(this).attr("current-page")) + 1;
 
@@ -24,8 +24,53 @@ $(function () {
             }
         });
         $(this).attr("current-page", next_page);
-
     });
+
+    $("#create_button").click(function () {
+        console.log("clicked!");
+
+        var title = $("#post-title").val();
+        var username = $("#post-username").val();
+        var content = $("#post-content").val();
+
+        $.ajax({
+            method: "POST",
+            url : "/post",
+            data: JSON.stringify({
+                "title" : title,
+                "username" : username,
+                "content" : content
+            }),
+            contentType : "application/json"
+        })
+            .done(function(response){
+                console.log("Post creation success!");
+                window.location.href = "/";
+            })
+    });
+
+
+    // $("#create_button").click(function(){
+    //     console.log("creat_button");
+    //     var title = $("#post-title").val();
+    //     var username = $("#post-username").val();
+    //     var content = $("#post-content").val();
+    //
+    //     $.ajax({
+    //         method: "POST",
+    //         url : "/post",
+    //         data: JSON.stringify({
+    //             "title" : title,
+    //             "username" : username,
+    //             "content" : content
+    //         }),
+    //         contentType : "application/json"
+    //     })
+    //         .done(function(response){
+    //         console.log("Post creation success!");
+    //         window.location.href = "/";
+    //     })
+    // });
 
     $(".comment-edit").hide();
 

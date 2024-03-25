@@ -28,4 +28,9 @@ public class PostService {
     public Post getPostById(Integer id){
         return postMapper.findOne(id);
     }
+
+    public boolean savePost(Post post){
+        Integer result = postMapper.save(post);
+        return result == 1;
+    }
 }
