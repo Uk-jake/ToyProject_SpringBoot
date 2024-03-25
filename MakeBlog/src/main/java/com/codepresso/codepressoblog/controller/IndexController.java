@@ -20,7 +20,7 @@ public class IndexController {
 
     @RequestMapping(value = "/")
     public String index(Model model) {
-        List<Post> postList = postService.getAllPost();
+        List<Post> postList = postService.getPostByPage(1,3);
         model.addAttribute("posts", postList);
         return "index";
     }
